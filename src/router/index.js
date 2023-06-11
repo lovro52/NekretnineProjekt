@@ -4,6 +4,8 @@ import LoginView from '../views/LoginView.vue'
 import Home from '../views/HomeView.vue'
 import RegisterView from '../views/RegisterView.vue'
 import ProfileView from '../views/ProfileView.vue'
+import NekretnineView from '../views/NekretnineView.vue'
+
 
 Vue.use(VueRouter)
 
@@ -27,6 +29,11 @@ const routes = [
     path: '/profile',
     name: 'profile-view',
     component: ProfileView
+  },
+  {
+    path: '/nekretnine',
+    name: 'nekretnine-view',
+    component: NekretnineView
   },
 ]
 
