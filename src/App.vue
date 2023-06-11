@@ -5,8 +5,8 @@
       </v-toolbar-title>
       <v-spacer></v-spacer>
       <v-btn text to="/">Home</v-btn>
-      <v-btn text to="/login">Login</v-btn>
-      <v-btn text to="/register">Register</v-btn>
+      <v-btn v-if="!currentUser" text to="/login">Login</v-btn>
+    <v-btn v-if="!currentUser" text to="/register">Register</v-btn>
       <v-btn text to="/profile">Profile</v-btn>
       <v-btn text to="/Nekretnine">Nekretnine</v-btn>
       <v-btn text to="/Test">Test</v-btn>
@@ -15,6 +15,9 @@
 
     <v-main>
       <router-view></router-view>
+      <div v-if="currentUser">
+      <p>Logged in as: {{ currentUser.email }}</p>
+    </div>
     </v-main>
     <v-footer color="primary lighten-1" padless>
       <v-row justify="center" no-gutters>
@@ -27,6 +30,10 @@
 </template>
 
 <script>
+import {
+    auth,
+    onAuthStateChanged,
+  } from "@/firebase";
 export default {
   data: () => ({
     links: [
@@ -34,6 +41,19 @@ export default {
       'About Us',
       'Contact Us',
     ],
+    currentUser: null,
   }),
+
+  beforeCreate() {
+  onAuthStateChanged(auth, (user) => {
+    if (user) {
+      this.currentUser = user; // Set the currently logged-in user
+    } else {
+      this.currentUser = null; // User is signed out
+    }
+  });
+},
+
 }
+
 </script>

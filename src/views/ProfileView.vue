@@ -26,6 +26,9 @@
               <v-btn :disabled="isOkButtonDisabled || isUserDataSame" :loading="!hasDataArrived" outlined>
                 OK
               </v-btn>
+              <v-btn @click="logout" outlined>
+                SignOut
+              </v-btn>
             </v-card-actions>
           </v-card>
         </v-col>
@@ -41,6 +44,7 @@
     auth,
     onAuthStateChanged,
     updatePassword,
+    signOut,
   } from "../firebase.js";
   
   export default {
@@ -100,6 +104,18 @@
       };
     },
     methods: {
+      logout() {
+      signOut(auth)
+        .then(() => {
+          // User signed out successfully
+          // Perform any additional logic or navigation here
+          this.$router.push({ path: "/" });
+        })
+        .catch((error) => {
+          // Handle logout error if necessary
+          console.log("Logout error", error);
+        });
+    },
       compareFormData() {
         if (
           this.userData.FirstName == this.firstName &&

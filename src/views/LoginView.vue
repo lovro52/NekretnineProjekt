@@ -37,6 +37,9 @@
 							color="blue">
 							Forgot password?
 						</v-btn>
+						<div v-if="currentUser">
+    						<p>Logged in as: {{ currentUser.email }}</p>
+  						</div>
 					</v-card-text>
 					<v-card-actions class="card-actions">
 						<v-btn
@@ -113,6 +116,7 @@ export default {
 	},
 	data() {
 		return {
+			currentUser: null,
 			emailForPassword: null,
 			passwordIssuesDialog: false,
 			isButtonDisabled: false,
@@ -136,7 +140,8 @@ export default {
 			let password = this.password;
 			signInWithEmailAndPassword(auth, email, password)
 				.then(() => {
-					this.$router.push("/animals");
+					this.currentUser = auth.currentUser;
+					this.$router.push("/");
 				})
 				.catch((error) => {
 					alert(error.message);
@@ -155,7 +160,7 @@ export default {
 			this.closeDialog();
 		},
 		postActionMoveToView() {
-			this.$router.push({ path: "/animals" });
+			this.$router.push({ path: "/" });
 		},
 		closeDialog() {
 			this.passwordIssuesDialog = false;
