@@ -11,12 +11,12 @@ import { getAnalytics } from "firebase/analytics";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-    apiKey: "AIzaSyCZ-FegneiZt_s_poKqDqEA9oa8RRQwITQ",
-    authDomain: "nekretnine-df780.firebaseapp.com",
-    projectId: "nekretnine-df780",
-    storageBucket: "nekretnine-df780.appspot.com",
-    messagingSenderId: "175299283678",
-    appId: "1:175299283678:web:344e1b0391af0640d9904f"
+    apiKey: "AIzaSyB7dkHe-jksndinKmhDaACxEjXW2zugRaw",
+    authDomain: "nekretnine-ebad8.firebaseapp.com",
+    projectId: "nekretnine-ebad8",
+    storageBucket: "nekretnine-ebad8.appspot.com",
+    messagingSenderId: "191923220348",
+    appId: "1:191923220348:web:4e1a0ce2e61d8570d77ef9"
 };
 
 // Initialize Firebase
