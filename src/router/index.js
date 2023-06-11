@@ -5,7 +5,7 @@ import Home from '../views/HomeView.vue'
 import RegisterView from '../views/RegisterView.vue'
 import ProfileView from '../views/ProfileView.vue'
 import NekretnineView from '../views/NekretnineView.vue'
-
+import DetaljiNekretnineView from "../views/DetaljiNekretnineView.vue"
 
 Vue.use(VueRouter)
 
@@ -34,6 +34,11 @@ const routes = [
     path: '/nekretnine',
     name: 'nekretnine-view',
     component: NekretnineView
+  },
+  {
+    path: '/recepti/:recept_id',
+    name: 'detaljinekretnine-view',
+    component: DetaljiNekretnineView
   },
 ]
 
