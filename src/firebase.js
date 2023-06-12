@@ -42,5 +42,4 @@ export {
     getDownloadURL,
     signOut,
     updatePassword
-
 }

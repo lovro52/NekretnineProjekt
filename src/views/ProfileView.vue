@@ -52,7 +52,6 @@
     components: {},
     watch: {
       newPassword: function (hasValue) {
-        debugger;
         if (hasValue) {
           this.isChangePassButtonDisabled = false;
         } else {
