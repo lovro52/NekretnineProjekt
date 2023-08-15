@@ -30,14 +30,14 @@ import { getAnalytics } from "firebase/analytics";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyB7dkHe-jksndinKmhDaACxEjXW2zugRaw",
-  authDomain: "nekretnine-ebad8.firebaseapp.com",
+  apiKey: "AIzaSyDHdNx8EM1I9Saxew0AxamweOuJgBg1LYU",
+  authDomain: "nekretnineprojekt.firebaseapp.com",
   databaseURL:
-    "https://nekretnine-ebad8-default-rtdb.europe-west1.firebasedatabase.app",
-  projectId: "nekretnine-ebad8",
-  storageBucket: "nekretnine-ebad8.appspot.com",
-  messagingSenderId: "191923220348",
-  appId: "1:191923220348:web:4e1a0ce2e61d8570d77ef9",
+    "https://nekretnineprojekt-default-rtdb.europe-west1.firebasedatabase.app",
+  projectId: "nekretnineprojekt",
+  storageBucket: "nekretnineprojekt.appspot.com",
+  messagingSenderId: "836126129211",
+  appId: "1:836126129211:web:63798ad60cc4e61e28301e",
 };
 
 // Initialize Firebase
