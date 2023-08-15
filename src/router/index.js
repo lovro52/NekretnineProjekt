@@ -41,8 +41,8 @@ const routes = [
     component: DetaljiNekretnineView,
   },
   {
-    path: "/dodaj",
-    name: "dodajnekretninu",
+    path: "/novanekretnina",
+    name: "novanekretnina-view",
     component: NovaNekretninaView,
   },
 ];

@@ -8,7 +8,7 @@
       <v-btn v-if="!currentUser" text to="/register">Register</v-btn>
       <v-btn text to="/profile">Profile</v-btn>
       <v-btn text to="/Nekretnine">Nekretnine</v-btn>
-      <v-btn text to="/NovaNekretnina">NovaNekretnina</v-btn>
+      <v-btn text to="/Test">Test</v-btn>
       <v-menu bottom min-width="200px" rounded offset-y> </v-menu>
     </v-app-bar>
 
