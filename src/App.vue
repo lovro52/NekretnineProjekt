@@ -16,6 +16,7 @@
       <router-view></router-view>
       <div v-if="currentUser">
         <p>Logged in as: {{ currentUser.email }}</p>
+        <p>Logged in as: {{ currentUser.firstname }}</p>
       </div>
     </v-main>
     <v-footer color="primary lighten-1" padless>
