@@ -1,7 +1,7 @@
 <template>
   <v-app>
     <v-app-bar app>
-      <v-toolbar-title>Nekretnine </v-toolbar-title>
+      <v-toolbar-title>Nekretnine4u </v-toolbar-title>
       <v-spacer></v-spacer>
       <v-btn text to="/">Home</v-btn>
       <v-btn v-if="!currentUser" text to="/login">Login</v-btn>
@@ -16,7 +16,7 @@
       <router-view></router-view>
       <div v-if="currentUser">
         <p>Logged in as: {{ currentUser.email }}</p>
-        <p>Logged in as: {{ currentUser.firstname }}</p>
+        <p>Logged in as: {{ currentUser.firstName }}</p>
       </div>
     </v-main>
     <v-footer color="primary lighten-1" padless>
