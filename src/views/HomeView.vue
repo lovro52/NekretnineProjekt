@@ -19,7 +19,7 @@ import SearchBar from "@/components/SearchBar";
 import Nekretnina from "@/components/Nekretnina";
 import { ref } from "vue";
 import { collection, query, where, getDocs } from "firebase/firestore/lite";
-import { db } from "../firebase"; // Import the Firestore db instance
+import { db } from "../firebase";
 
 export default {
   components: {
