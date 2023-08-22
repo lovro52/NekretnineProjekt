@@ -2,12 +2,14 @@
 <template>
   <div>
     <input
+      class="search"
       type="text"
       v-model="searchTerm"
       @input="handleInput"
       placeholder="Search..."
     />
-    <button @click="search">Search</button>
+    <v-spacer></v-spacer>
+    <v-btn elevation="2" outlined rounded @click="search">Search</v-btn>
   </div>
 </template>
 
@@ -31,4 +33,10 @@ export default {
 
 <style scoped>
 /* Add your component-specific styles here */
+.search {
+  align-content: center;
+  margin: 2%;
+  padding: 2%;
+  border-style: solid;
+}
 </style>

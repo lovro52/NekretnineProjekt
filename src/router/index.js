@@ -7,6 +7,7 @@ import ProfileView from "../views/ProfileView.vue";
 import NekretnineView from "../views/NekretnineView.vue";
 import DetaljiNekretnineView from "../views/DetaljiNekretnineView.vue";
 import NovaNekretninaView from "../views/NovaNekretninaView.vue";
+import About from "../views/AboutView.vue";
 Vue.use(VueRouter);
 
 const routes = [
@@ -44,6 +45,11 @@ const routes = [
     path: "/novanekretnina",
     name: "novanekretnina-view",
     component: NovaNekretninaView,
+  },
+  {
+    path: "/about",
+    name: "about",
+    component: About,
   },
 ];
 

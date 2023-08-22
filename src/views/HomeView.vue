@@ -1,17 +1,25 @@
 <!-- src/views/Home.vue -->
 <template>
-  <div>
-    <h1>Recipe Search</h1>
-    <SearchBar @search="performSearch" />
-    <div v-if="searchResults.length === 0">No results found.</div>
-    <div v-else>
-      <Nekretnina
-        v-for="result in searchResults"
-        :key="result.id"
-        :recept="result"
-      />
-    </div>
-  </div>
+  <v-container fill-height fill-width fluid class="background">
+    <v-row align="center" justify="center">
+      <v-col align="center" justify="center" cols="12">
+        <v-card width="600px" outlined>
+          <v-card-title>Search Bar</v-card-title>
+          <SearchBar @search="performSearch" />
+          <div class="NoResults" v-if="searchResults.length === 0">
+            No results found.
+          </div>
+          <div v-else>
+            <Nekretnina
+              v-for="result in searchResults"
+              :key="result.id"
+              :recept="result"
+            />
+          </div>
+        </v-card>
+      </v-col>
+    </v-row>
+  </v-container>
 </template>
 
 <script>
@@ -56,6 +64,8 @@ export default {
 };
 </script>
 
-<style scoped>
-/* Add your component-specific styles here */
+<style>
+.NoResults {
+  padding: 2%;
+}
 </style>
