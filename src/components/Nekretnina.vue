@@ -6,11 +6,13 @@
 
     <v-card-text>
       <div>{{ recept.naslov }}</div>
-
-      <div>{{ recept.naslov }}</div>
     </v-card-text>
     <div>
-      {{ recept.text }}
+      Opis: {{ recept.text }}<br />
+      Cijena: {{ recept.price }}<br />
+      Adresa: {{ recept.address }}<br />
+      Lokacija: {{ recept.location }}<br />
+      Tip: {{ recept.type }}<br />
     </div>
 
     <v-card-actions>

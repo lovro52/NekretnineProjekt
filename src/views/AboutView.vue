@@ -2,13 +2,31 @@
   <div class="about">
     <h1>Nekretnine</h1>
 
-    <!-- User input for filtering -->
+    <!-- Type filter -->
     <label>Type:</label>
     <select v-model="selectedType">
       <option value="">All</option>
       <option value="Kuca">Kuca</option>
       <option value="Stan">Stan</option>
       <!-- Add more options as needed -->
+    </select>
+
+    <!-- Price range filter -->
+    <label>Price Range:</label>
+    <input type="number" v-model="minPrice" placeholder="Min Price" />
+    <input type="number" v-model="maxPrice" placeholder="Max Price" />
+
+    <!-- Location filter -->
+    <label>Location:</label>
+    <select v-model="selectedLocation">
+      <option value="">All</option>
+      <option value="Bjelovarsko-bilogorska županija">
+        Bjelovarsko-bilogorska županija
+      </option>
+      <option value="Brodsko-posavska županija">
+        Brodsko-posavska županija
+      </option>
+      <!-- Add more options for other locations -->
     </select>
 
     <div v-for="nekretnina in filteredNekretnine" :key="nekretnina.id">
@@ -28,7 +46,10 @@ export default {
   data() {
     return {
       nekretnine: [],
-      selectedType: "", // Initialize the selected type filter
+      selectedType: "",
+      minPrice: null,
+      maxPrice: null,
+      selectedLocation: "",
     };
   },
   async mounted() {
@@ -44,13 +65,18 @@ export default {
   },
   computed: {
     filteredNekretnine() {
-      if (this.selectedType === "") {
-        return this.nekretnine;
-      } else {
-        return this.nekretnine.filter(
-          (nekretnina) => nekretnina.type === this.selectedType
-        );
-      }
+      return this.nekretnine.filter((nekretnina) => {
+        const typeFilter =
+          this.selectedType === "" || nekretnina.type === this.selectedType;
+        const priceFilter =
+          (!this.minPrice || nekretnina.price >= this.minPrice) &&
+          (!this.maxPrice || nekretnina.price <= this.maxPrice);
+        const locationFilter =
+          this.selectedLocation === "" ||
+          nekretnina.location === this.selectedLocation;
+
+        return typeFilter && priceFilter && locationFilter;
+      });
     },
   },
 };

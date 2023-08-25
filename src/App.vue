@@ -28,7 +28,6 @@
       <v-btn color="white" rounded class="my-2" text to="/Nekretnine"
         >Nekretnine</v-btn
       >
-      <v-btn color="white" rounded class="my-2" text to="/Test">Test</v-btn>
       <v-menu bottom min-width="200px" rounded offset-y> </v-menu>
     </v-app-bar>
     <v-main>

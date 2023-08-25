@@ -10,13 +10,13 @@
         placeholder="Enter the value for Naslov"
       />
 
-      <label for="type">Type:</label>
-      <input
-        type="text"
-        v-model="type"
-        id="type"
-        placeholder="Enter the value for Type"
-      />
+      <div>
+        <label for="type">Type:</label>
+        <select v-model="type" id="type">
+          <option value="Stan">Stan</option>
+          <option value="Kuca">Kuća</option>
+        </select>
+      </div>
 
       <label for="address">Address:</label>
       <input
@@ -25,14 +25,6 @@
         id="address"
         placeholder="Enter the value for Address"
       />
-
-      <label for="number">Number:</label>
-      <input
-        type="number"
-        v-model="number"
-        id="number"
-        placeholder="Enter the value for Number"
-      />
       <label for="text">text:</label>
       <input
         type="text"
@@ -40,6 +32,27 @@
         id="text"
         placeholder="Enter the value for text"
       />
+
+      <label for="price">price:</label>
+      <input
+        type="number"
+        v-model="price"
+        id="price"
+        placeholder="Enter the value for price"
+      />
+      <div>
+        <label for="location">Location:</label>
+        <select v-model="location" id="location">
+          <option disabled value="">Select a location</option>
+          <option value="Bjelovarsko-bilogorska županija">
+            Bjelovarsko-bilogorska županija
+          </option>
+          <option value="Brodsko-posavska županija">
+            Brodsko-posavska županija
+          </option>
+        </select>
+      </div>
+
       <div>
         <label for="slika">Upload Image:</label>
         <input type="file" id="slika" @change="handleImageChange" />
@@ -67,9 +80,10 @@ export default {
       naslov: "",
       type: "",
       address: "",
-      number: null,
       text: "",
       slika: null,
+      location: null,
+      price: null,
     };
   },
   methods: {
@@ -88,9 +102,10 @@ export default {
         naslov: this.naslov,
         type: this.type,
         address: this.address,
-        number: this.number,
         text: this.text,
         slika: this.slika,
+        location: this.location,
+        price: this.price,
       };
 
       try {
@@ -102,9 +117,10 @@ export default {
         this.naslov = "";
         this.type = "";
         this.address = "";
-        this.number = null;
         this.text = "";
         this.slika = null;
+        this.location = null;
+        this.price = null;
       } catch (error) {
         console.error("Error inserting component:", error);
         alert("An error occurred while inserting the component.");
