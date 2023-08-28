@@ -5,6 +5,8 @@
       <v-col align="center" justify="center" cols="12">
         <v-card width="600px" outlined>
           <v-card-title>Search Bar</v-card-title>
+          <v-btn @click="goToFilteredPageStan">Show Only Stan</v-btn>
+          <v-btn @click="goToFilteredPageKuca">Show Only Kuca</v-btn>
           <SearchBar @search="performSearch" />
           <div class="NoResults" v-if="searchResults.length === 0">
             No results found.
@@ -33,6 +35,22 @@ export default {
   components: {
     SearchBar,
     Nekretnina,
+  },
+  methods: {
+    goToFilteredPageStan() {
+      // Use Vue Router to navigate to the other page with a query parameter
+      this.$router.push({
+        name: "nekretnine-view",
+        query: { type: "Stan" },
+      });
+    },
+    goToFilteredPageKuca() {
+      // Use Vue Router to navigate to the other page with a query parameter
+      this.$router.push({
+        name: "nekretnine-view",
+        query: { type: "Kuca" },
+      });
+    },
   },
   setup() {
     const searchResults = ref([]);

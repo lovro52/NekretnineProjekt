@@ -62,6 +62,12 @@ export default {
         id: doc.id,
       });
     });
+    if (this.$route.query.type === "Stan") {
+      this.selectedType = "Stan";
+    }
+    if (this.$route.query.type === "Kuca") {
+      this.selectedType = "Kuca";
+    }
   },
   computed: {
     filteredNekretnine() {
