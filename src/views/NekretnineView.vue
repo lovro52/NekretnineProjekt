@@ -2,15 +2,42 @@
   <div class="about">
     <h1>Nekretnine</h1>
 
-    <div v-for="rec in recepti" :key="rec.id">
-      <Nekretnina :recept="rec" />
+    <!-- Type filter -->
+    <label>Type:</label>
+    <select v-model="selectedType">
+      <option value="">All</option>
+      <option value="Kuca">Kuca</option>
+      <option value="Stan">Stan</option>
+      <!-- Add more options as needed -->
+    </select>
+
+    <!-- Price range filter -->
+    <label>Price Range:</label>
+    <input type="number" v-model="minPrice" placeholder="Min Price" />
+    <input type="number" v-model="maxPrice" placeholder="Max Price" />
+
+    <!-- Location filter -->
+    <label>Location:</label>
+    <select v-model="selectedLocation">
+      <option value="">All</option>
+      <option value="Bjelovarsko-bilogorska županija">
+        Bjelovarsko-bilogorska županija
+      </option>
+      <option value="Brodsko-posavska županija">
+        Brodsko-posavska županija
+      </option>
+      <!-- Add more options for other locations -->
+    </select>
+
+    <div v-for="nekretnina in filteredNekretnine" :key="nekretnina.id">
+      <Nekretnina :recept="nekretnina" />
     </div>
   </div>
 </template>
 
 <script>
 import { db } from "../firebase";
-import { collection, doc, getDoc, getDocs } from "firebase/firestore/lite";
+import { collection, getDocs, query, where } from "firebase/firestore/lite";
 import Nekretnina from "../components/Nekretnina.vue";
 
 export default {
@@ -18,19 +45,39 @@ export default {
   components: { Nekretnina },
   data() {
     return {
-      recepti: [],
+      nekretnine: [],
+      selectedType: "",
+      minPrice: null,
+      maxPrice: null,
+      selectedLocation: "",
     };
   },
   async mounted() {
-    let rezultatiRef = collection(db, "recepti");
-    let recepti = await getDocs(rezultatiRef);
+    const nekretnineRef = collection(db, "recepti");
+    const querySnapshot = await getDocs(nekretnineRef);
 
-    recepti.docs.map((doc) => {
-      this.recepti.push({
+    querySnapshot.forEach((doc) => {
+      this.nekretnine.push({
         ...doc.data(),
         id: doc.id,
       });
     });
+  },
+  computed: {
+    filteredNekretnine() {
+      return this.nekretnine.filter((nekretnina) => {
+        const typeFilter =
+          this.selectedType === "" || nekretnina.type === this.selectedType;
+        const priceFilter =
+          (!this.minPrice || nekretnina.price >= this.minPrice) &&
+          (!this.maxPrice || nekretnina.price <= this.maxPrice);
+        const locationFilter =
+          this.selectedLocation === "" ||
+          nekretnina.location === this.selectedLocation;
+
+        return typeFilter && priceFilter && locationFilter;
+      });
+    },
   },
 };
 </script>

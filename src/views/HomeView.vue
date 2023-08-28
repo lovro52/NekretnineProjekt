@@ -49,6 +49,7 @@ export default {
           id: doc.id,
           naslov: doc.data().naslov,
           slika: doc.data().slika,
+          type: doc.data().type,
           // Add other fields you want to display
         }));
       } catch (error) {

@@ -73,7 +73,7 @@
 <script>
 import { collection, addDoc } from "firebase/firestore/lite";
 import { db } from "../firebase";
-
+import { getAuth, onAuthStateChanged } from "firebase/auth";
 export default {
   data() {
     return {
@@ -84,7 +84,14 @@ export default {
       slika: null,
       location: null,
       price: null,
+      user: null,
     };
+  },
+  mounted() {
+    const auth = getAuth();
+    onAuthStateChanged(auth, (user) => {
+      this.user = user;
+    });
   },
   methods: {
     handleImageChange(event) {
@@ -97,6 +104,10 @@ export default {
       this.slika = null;
     },
     async insertComponent() {
+      if (!this.user) {
+        alert("Please log in to insert a component.");
+        return;
+      }
       // Create the component data using the input values
       const componentData = {
         naslov: this.naslov,
@@ -106,13 +117,13 @@ export default {
         slika: this.slika,
         location: this.location,
         price: this.price,
+        userId: this.user.uid,
       };
 
       try {
         // Add the component data to Firestore
         const docRef = await addDoc(collection(db, "recepti"), componentData);
         console.log("Component inserted successfully with ID: ", docRef.id);
-
         alert("Component inserted successfully!");
         this.naslov = "";
         this.type = "";
