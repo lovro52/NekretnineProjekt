@@ -27,7 +27,7 @@
       />
       <label for="text">text:</label>
       <input
-        type="text"
+        type="textbox"
         v-model="text"
         id="text"
         placeholder="Enter the value for text"

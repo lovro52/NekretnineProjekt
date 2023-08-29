@@ -34,7 +34,6 @@
       <router-view></router-view>
       <div v-if="currentUser">
         <p>Logged in as: {{ currentUser.email }}</p>
-        <p>Logged in as: {{ currentUser.userUID }}</p>
       </div>
     </v-main>
 
