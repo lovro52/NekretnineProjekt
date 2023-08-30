@@ -5,8 +5,10 @@
       <v-col align="center" justify="center" cols="12">
         <v-card width="600px" outlined>
           <v-card-title>Search Bar</v-card-title>
+
           <v-btn @click="goToFilteredPageStan">Show Only Stan</v-btn>
           <v-btn @click="goToFilteredPageKuca">Show Only Kuca</v-btn>
+          <p>Logged in as: {{ currentUser.email }}</p>
           <SearchBar @search="performSearch" />
           <div class="NoResults" v-if="searchResults.length === 0">
             No results found.
@@ -30,11 +32,23 @@ import Nekretnina from "@/components/Nekretnina";
 import { ref } from "vue";
 import { collection, query, where, getDocs } from "firebase/firestore/lite";
 import { db } from "../firebase";
-
+import { auth, onAuthStateChanged } from "@/firebase";
 export default {
   components: {
     SearchBar,
     Nekretnina,
+  },
+  data: () => ({
+    currentUser: "",
+  }),
+  beforeCreate() {
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+        this.currentUser = user; // Set the currently logged-in user
+      } else {
+        this.currentUser = null; // User is signed out
+      }
+    });
   },
   methods: {
     goToFilteredPageStan() {

@@ -9,7 +9,13 @@
         id="naslov"
         placeholder="Enter the value for Naslov"
       />
-
+      <label for="email">email:</label>
+      <input
+        type="text"
+        v-model="email"
+        id="email"
+        placeholder="Enter your email"
+      />
       <div>
         <label for="type">Type:</label>
         <select v-model="type" id="type">
@@ -50,6 +56,46 @@
           <option value="Brodsko-posavska županija">
             Brodsko-posavska županija
           </option>
+          <option value="Dubrovačko-neretvanska županija">
+            Dubrovačko-neretvanska županija
+          </option>
+          <option value="Istarska županija">Istarska županija</option>
+          <option value="Karlovačka županija">Karlovačka županija</option>
+          <option value="Koprivničko-križevačka županija">
+            Koprivničko-križevačka županija
+          </option>
+          <option value="Krapinsko-zagorska županija">
+            Krapinsko-zagorska županija
+          </option>
+          <option value="Ličko-senjska županija">Ličko-senjska županija</option>
+          <option value="Međimurska županija">Međimurska županija</option>
+          <option value="Osječko-baranjska županija">
+            Osječko-baranjska županija
+          </option>
+          <option value="Požeško-slavonska županija">
+            Požeško-slavonska županija
+          </option>
+          <option value="Primorsko-goranska županija">
+            Primorsko-goranska županija
+          </option>
+          <option value="Šibensko-kninska županija">
+            Šibensko-kninska županija
+          </option>
+          <option value="Sisačko-moslavačka županija">
+            Sisačko-moslavačka županija
+          </option>
+          <option value="Splitsko-dalmatinska županija">
+            Splitsko-dalmatinska županija
+          </option>
+          <option value="Varaždinska županija">Varaždinska županija</option>
+          <option value="Virovitičko-podravska županija">
+            Virovitičko-podravska županija
+          </option>
+          <option value="Vukovarsko-srijemska županija">
+            Vukovarsko-srijemska županija
+          </option>
+          <option value="Zadarska županija">Zadarska županija</option>
+          <option value="Zagrebačka županija">Zagrebačka županija</option>
         </select>
       </div>
 
@@ -78,6 +124,7 @@ export default {
   data() {
     return {
       naslov: "",
+      email: "",
       type: "",
       address: "",
       text: "",
@@ -111,6 +158,7 @@ export default {
       // Create the component data using the input values
       const componentData = {
         naslov: this.naslov,
+        email: this.email,
         type: this.type,
         address: this.address,
         text: this.text,
@@ -126,6 +174,7 @@ export default {
         console.log("Component inserted successfully with ID: ", docRef.id);
         alert("Component inserted successfully!");
         this.naslov = "";
+        this.email = "";
         this.type = "";
         this.address = "";
         this.text = "";

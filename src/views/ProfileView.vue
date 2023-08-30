@@ -67,15 +67,18 @@
             </v-btn>
             <v-btn @click="logout" outlined> SignOut </v-btn>
           </v-card-actions>
+          <v-divider></v-divider>
+          <v-card-actions class="card-actions">
+            <v-btn color="secondary" elevation="3" @click="goToNovaNekretnina"
+              >dodajte nekretninu</v-btn
+            >
+            <v-btn color="secondary" elevation="3" @click="goToMojeNekretnine"
+              >Pogledajte svoje nekretnine</v-btn
+            >
+          </v-card-actions>
         </v-card>
       </v-col>
     </v-row>
-    <v-btn color="secondary" elevation="3" @click="goToNovaNekretnina"
-      >dodajte nekretninu</v-btn
-    >
-    <v-btn color="secondary" elevation="3" @click="goToMojeNekretnine"
-      >Pogledajte svoje nekretnine</v-btn
-    >
   </v-container>
 </template>
 
@@ -150,7 +153,10 @@ export default {
       this.$router.push("/NovaNekretnina"); // Navigate to the specified path
     },
     goToMojeNekretnine() {
-      this.$router.push("/About"); // Navigate to the specified path
+      this.$router.push({
+        name: "about",
+        query: { email: "user.email" },
+      }); // Navigate to the specified path
     },
     logout() {
       signOut(auth)

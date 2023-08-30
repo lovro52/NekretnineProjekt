@@ -1,7 +1,7 @@
 <template>
   <v-app>
     <v-app-bar color="primary lighten-1" app>
-      <v-toolbar-title></v-toolbar-title>
+      <v-toolbar-title>Nekretnine4U</v-toolbar-title>
       <v-spacer></v-spacer>
       <v-btn color="white" rounded class="my-2" text to="/">Home</v-btn>
       <v-btn
@@ -42,13 +42,13 @@
         width="100%"
         class="primary lighten-1 py-4 text-center white--text"
       >
-        <v-btn color="white" rounded class="my-2" text to="/">Home</v-btn>
-        <v-btn color="white" rounded class="my-2" text to="/About"
-          >About us</v-btn
-        >
-        <v-btn color="white" rounded class="my-2" text to="/NovaNekretnina"
-          >NovaNekretnina</v-btn
-        >
+        <v-card-text class="white--text pt-0">
+          Powered by Lovro Luka Matan, ChatGpt and some dumb luck
+        </v-card-text>
+
+        <v-card-text class="white--text">
+          {{ new Date().getFullYear() }} — <strong>Programsko</strong>
+        </v-card-text>
       </v-card>
     </v-footer>
   </v-app>
