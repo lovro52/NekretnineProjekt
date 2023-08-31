@@ -1,6 +1,13 @@
 <template>
   <v-card class="recept_card mx-auto" max-width="400">
-    <v-img class="align-end text-white" height="200" :src="recept.slika" cover>
+    <v-img
+      class="align-end text-white"
+      height="200"
+      max-width="300"
+      max-height="300"
+      :src="recept.slika"
+      cover
+    >
       <v-card-title class="recept_naslov"> {{ recept.naslov }}</v-card-title>
     </v-img>
 

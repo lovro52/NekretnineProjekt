@@ -72,7 +72,7 @@
             <v-btn color="secondary" elevation="3" @click="goToNovaNekretnina"
               >dodajte nekretninu</v-btn
             >
-            <v-btn color="secondary" elevation="3" @click="goToMojeNekretnine"
+            <v-btn color="secondary" elevation="3" @click="performSearchOnClick"
               >Pogledajte svoje nekretnine</v-btn
             >
           </v-card-actions>
@@ -92,7 +92,8 @@ import {
   updatePassword,
   signOut,
 } from "../firebase.js";
-
+import { ref } from "vue";
+import { collection, query, where, getDocs } from "firebase/firestore/lite";
 export default {
   name: "ProfileView",
   components: {},
@@ -212,6 +213,37 @@ export default {
           console.log("Password update error ", error);
         });
     },
+  },
+  setup() {
+    const searchResults = ref([]);
+
+    const performSearch = async (searchTerm) => {
+      const q = query(
+        collection(db, "recepti"),
+        where("email", "==", searchTerm) // Adjust field name if needed
+      );
+      try {
+        const querySnapshot = await getDocs(q);
+        searchResults.value = querySnapshot.docs.map((doc) => ({
+          id: doc.id,
+          naslov: doc.data().naslov,
+          slika: doc.data().slika,
+          type: doc.data().type,
+          // Add other fields you want to display
+        }));
+      } catch (error) {
+        console.error("Error fetching search results:", error);
+      }
+    };
+
+    const performSearchOnClick = () => {
+      performSearch("luka.@gmail.com"); // Replace with the desired email address
+    };
+
+    return {
+      searchResults,
+      performSearchOnClick,
+    };
   },
   beforeCreate() {
     onAuthStateChanged(auth, (user) => {

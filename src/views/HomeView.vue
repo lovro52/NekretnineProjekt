@@ -4,11 +4,7 @@
     <v-row align="center" justify="center">
       <v-col align="center" justify="center" cols="12">
         <v-card width="600px" outlined>
-          <v-card-title>Search Bar</v-card-title>
-
-          <v-btn @click="goToFilteredPageStan">Show Only Stan</v-btn>
-          <v-btn @click="goToFilteredPageKuca">Show Only Kuca</v-btn>
-          <p>Logged in as: {{ currentUser.email }}</p>
+          <v-card-title>Pretraži Nekretnine:</v-card-title>
           <SearchBar @search="performSearch" />
           <div class="NoResults" v-if="searchResults.length === 0">
             No results found.
@@ -20,6 +16,13 @@
               :recept="result"
             />
           </div>
+          <v-divider></v-divider>
+          <v-card-title>Izaberi:</v-card-title>
+          <v-card-actions class="btn">
+            <v-btn @click="goToFilteredPageStan">Stanovi</v-btn>
+            <v-btn @click="goToFilteredPageKuca">Kuće</v-btn>
+          </v-card-actions>
+          <p>Logged in as: {{ currentUser.email }}</p>
         </v-card>
       </v-col>
     </v-row>
@@ -97,8 +100,14 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 .NoResults {
   padding: 2%;
+}
+.btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100px;
 }
 </style>
