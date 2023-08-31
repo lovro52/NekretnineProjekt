@@ -1,119 +1,141 @@
 <template>
-  <div class="insert-page">
-    <h1>Insert Component into Firebase</h1>
-    <form @submit.prevent="insertComponent">
-      <label for="naslov">Naslov:</label>
-      <input
-        type="text"
-        v-model="naslov"
-        id="naslov"
-        placeholder="Enter the value for Naslov"
-      />
-      <label for="email">email:</label>
-      <input
-        type="text"
-        v-model="email"
-        id="email"
-        placeholder="Enter your email"
-      />
-      <div>
-        <label for="type">Type:</label>
-        <select v-model="type" id="type">
-          <option value="Stan">Stan</option>
-          <option value="Kuca">Kuća</option>
-        </select>
-      </div>
+  <v-container fill-height fill-width fluid class="background">
+    <v-row align="center" justify="center">
+      <v-col align="center" justify="center" cols="12">
+        <v-card width="600px" outlined>
+          <v-card-text align="left" class="card-text-border">
+            <div class="insert-page">
+              <h1>Unesite informacije o nekretnini</h1>
+              <form @submit.prevent="insertComponent">
+                <label for="naslov">Naslov:</label>
+                <input
+                  type="text"
+                  v-model="naslov"
+                  id="naslov"
+                  placeholder="Enter the value for Naslov"
+                />
+                <label for="email">email:</label>
+                <input
+                  type="text"
+                  v-model="email"
+                  id="email"
+                  placeholder="Enter your email"
+                />
+                <div>
+                  <label for="type">Type:</label>
+                  <select v-model="type" id="type">
+                    <option value="Stan">Stan</option>
+                    <option value="Kuca">Kuća</option>
+                  </select>
+                </div>
 
-      <label for="address">Address:</label>
-      <input
-        type="text"
-        v-model="address"
-        id="address"
-        placeholder="Enter the value for Address"
-      />
-      <label for="text">text:</label>
-      <input
-        type="textbox"
-        v-model="text"
-        id="text"
-        placeholder="Enter the value for text"
-      />
+                <label for="address">Address:</label>
+                <input
+                  type="text"
+                  v-model="address"
+                  id="address"
+                  placeholder="Enter the value for Address"
+                />
+                <label for="text">text:</label>
+                <input
+                  type="textbox"
+                  v-model="text"
+                  id="text"
+                  placeholder="Enter the value for text"
+                />
 
-      <label for="price">price:</label>
-      <input
-        type="number"
-        v-model="price"
-        id="price"
-        placeholder="Enter the value for price"
-      />
-      <div>
-        <label for="location">Location:</label>
-        <select v-model="location" id="location">
-          <option disabled value="">Select a location</option>
-          <option value="Bjelovarsko-bilogorska županija">
-            Bjelovarsko-bilogorska županija
-          </option>
-          <option value="Brodsko-posavska županija">
-            Brodsko-posavska županija
-          </option>
-          <option value="Dubrovačko-neretvanska županija">
-            Dubrovačko-neretvanska županija
-          </option>
-          <option value="Istarska županija">Istarska županija</option>
-          <option value="Karlovačka županija">Karlovačka županija</option>
-          <option value="Koprivničko-križevačka županija">
-            Koprivničko-križevačka županija
-          </option>
-          <option value="Krapinsko-zagorska županija">
-            Krapinsko-zagorska županija
-          </option>
-          <option value="Ličko-senjska županija">Ličko-senjska županija</option>
-          <option value="Međimurska županija">Međimurska županija</option>
-          <option value="Osječko-baranjska županija">
-            Osječko-baranjska županija
-          </option>
-          <option value="Požeško-slavonska županija">
-            Požeško-slavonska županija
-          </option>
-          <option value="Primorsko-goranska županija">
-            Primorsko-goranska županija
-          </option>
-          <option value="Šibensko-kninska županija">
-            Šibensko-kninska županija
-          </option>
-          <option value="Sisačko-moslavačka županija">
-            Sisačko-moslavačka županija
-          </option>
-          <option value="Splitsko-dalmatinska županija">
-            Splitsko-dalmatinska županija
-          </option>
-          <option value="Varaždinska županija">Varaždinska županija</option>
-          <option value="Virovitičko-podravska županija">
-            Virovitičko-podravska županija
-          </option>
-          <option value="Vukovarsko-srijemska županija">
-            Vukovarsko-srijemska županija
-          </option>
-          <option value="Zadarska županija">Zadarska županija</option>
-          <option value="Zagrebačka županija">Zagrebačka županija</option>
-        </select>
-      </div>
+                <label for="price">price:</label>
+                <input
+                  type="number"
+                  v-model="price"
+                  id="price"
+                  placeholder="Enter the value for price"
+                />
+                <div>
+                  <label for="location">Location:</label>
+                  <select v-model="location" id="location">
+                    <option disabled value="">Select a location</option>
+                    <option value="Bjelovarsko-bilogorska županija">
+                      Bjelovarsko-bilogorska županija
+                    </option>
+                    <option value="Brodsko-posavska županija">
+                      Brodsko-posavska županija
+                    </option>
+                    <option value="Dubrovačko-neretvanska županija">
+                      Dubrovačko-neretvanska županija
+                    </option>
+                    <option value="Istarska županija">Istarska županija</option>
+                    <option value="Karlovačka županija">
+                      Karlovačka županija
+                    </option>
+                    <option value="Koprivničko-križevačka županija">
+                      Koprivničko-križevačka županija
+                    </option>
+                    <option value="Krapinsko-zagorska županija">
+                      Krapinsko-zagorska županija
+                    </option>
+                    <option value="Ličko-senjska županija">
+                      Ličko-senjska županija
+                    </option>
+                    <option value="Međimurska županija">
+                      Međimurska županija
+                    </option>
+                    <option value="Osječko-baranjska županija">
+                      Osječko-baranjska županija
+                    </option>
+                    <option value="Požeško-slavonska županija">
+                      Požeško-slavonska županija
+                    </option>
+                    <option value="Primorsko-goranska županija">
+                      Primorsko-goranska županija
+                    </option>
+                    <option value="Šibensko-kninska županija">
+                      Šibensko-kninska županija
+                    </option>
+                    <option value="Sisačko-moslavačka županija">
+                      Sisačko-moslavačka županija
+                    </option>
+                    <option value="Splitsko-dalmatinska županija">
+                      Splitsko-dalmatinska županija
+                    </option>
+                    <option value="Varaždinska županija">
+                      Varaždinska županija
+                    </option>
+                    <option value="Virovitičko-podravska županija">
+                      Virovitičko-podravska županija
+                    </option>
+                    <option value="Vukovarsko-srijemska županija">
+                      Vukovarsko-srijemska županija
+                    </option>
+                    <option value="Zadarska županija">Zadarska županija</option>
+                    <option value="Zagrebačka županija">
+                      Zagrebačka županija
+                    </option>
+                  </select>
+                </div>
 
-      <div>
-        <label for="slika">Upload Image:</label>
-        <input type="file" id="slika" @change="handleImageChange" />
-        <img
-          v-if="slika"
-          :src="slika"
-          alt="Uploaded Image"
-          class="uploaded-image"
-        />
-        <button v-if="slika" @click="removeImage">Remove Image</button>
-      </div>
+                <div>
+                  <label for="slika">Upload Image:</label>
+                  <input type="file" id="slika" @change="handleImageChange" />
+                  <img
+                    v-if="slika"
+                    :src="slika"
+                    alt="Uploaded Image"
+                    class="uploaded-image"
+                  />
+                  <button v-if="slika" @click="removeImage">
+                    Remove Image
+                  </button>
+                </div>
 
-      <button type="submit">Insert</button>
-    </form>
-  </div>
+                <button type="submit">Insert</button>
+              </form>
+            </div>
+          </v-card-text>
+        </v-card>
+      </v-col>
+    </v-row>
+  </v-container>
 </template>
 
 <script>
@@ -192,7 +214,7 @@ export default {
 
 <style scoped>
 .insert-page {
-  max-width: 800px;
+  max-width: 1000px;
   margin: 0 auto;
   padding: 20px;
 }
