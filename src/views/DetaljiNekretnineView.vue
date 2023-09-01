@@ -3,8 +3,8 @@
     <v-row align="center" justify="center">
       <v-col align="center" justify="center" cols="12">
         <v-card width="600px" outlined>
-          <h1>Detalji o {{ podaci.naslov }}</h1>
-          <img :src="podaci.slika" />
+          <h1>{{ podaci.naslov }}</h1>
+          <img class="slika" :src="podaci.slika" />
           <v-card-text align="left" class="card-text-border">
             <div>Opis: {{ podaci.text }}</div>
             <div>Tip Nekretnine: {{ podaci.type }}</div>
@@ -41,5 +41,8 @@ export default {
 <style scoped>
 div {
   padding: 2%;
+}
+.slika {
+  max-width: 70%;
 }
 </style>

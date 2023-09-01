@@ -3,8 +3,8 @@
     <v-img
       class="align-end text-white"
       height="200"
-      max-width="300"
-      max-height="300"
+      max-width="500"
+      max-height="500"
       :src="recept.slika"
       cover
     >
@@ -16,7 +16,7 @@
     </v-card-text>
     <div>
       Opis: {{ recept.text }}<br />
-      Cijena: {{ recept.price }}<br />
+      Cijena: {{ recept.price }} €<br />
       Adresa: {{ recept.address }}<br />
       Lokacija: {{ recept.location }}<br />
       Tip: {{ recept.type }}<br />

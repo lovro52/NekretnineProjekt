@@ -6,15 +6,16 @@
           <v-card-text align="left" class="card-text-border">
             <div class="insert-page">
               <h1>Unesite informacije o nekretnini</h1>
+              <v-divider></v-divider>
               <form @submit.prevent="insertComponent">
-                <label for="naslov">Naslov:</label>
+                <label for="naslov"><strong>Naslov:</strong></label>
                 <input
                   type="text"
                   v-model="naslov"
                   id="naslov"
                   placeholder="Enter the value for Naslov"
                 />
-                <label for="email">email:</label>
+                <label for="email"><strong>Email:</strong></label>
                 <input
                   type="text"
                   v-model="email"
@@ -22,29 +23,29 @@
                   placeholder="Enter your email"
                 />
                 <div>
-                  <label for="type">Type:</label>
+                  <label for="type"><strong>Tip:</strong></label>
                   <select v-model="type" id="type">
                     <option value="Stan">Stan</option>
                     <option value="Kuca">Kuća</option>
                   </select>
                 </div>
 
-                <label for="address">Address:</label>
+                <label for="address"><strong>Adresa:</strong></label>
                 <input
                   type="text"
                   v-model="address"
                   id="address"
                   placeholder="Enter the value for Address"
                 />
-                <label for="text">text:</label>
+                <label for="text"><strong>Opis:</strong></label>
                 <input
-                  type="textbox"
+                  type="textarea"
                   v-model="text"
                   id="text"
                   placeholder="Enter the value for text"
                 />
 
-                <label for="price">price:</label>
+                <label for="price"><strong>Cijena:</strong></label>
                 <input
                   type="number"
                   v-model="price"
@@ -52,7 +53,7 @@
                   placeholder="Enter the value for price"
                 />
                 <div>
-                  <label for="location">Location:</label>
+                  <label for="location"><strong>Lokacija:</strong></label>
                   <select v-model="location" id="location">
                     <option disabled value="">Select a location</option>
                     <option value="Bjelovarsko-bilogorska županija">
@@ -115,7 +116,7 @@
                 </div>
 
                 <div>
-                  <label for="slika">Upload Image:</label>
+                  <label for="slika"><strong>Slika:</strong></label>
                   <input type="file" id="slika" @change="handleImageChange" />
                   <img
                     v-if="slika"
@@ -127,8 +128,12 @@
                     Remove Image
                   </button>
                 </div>
-
-                <button type="submit">Insert</button>
+                <v-divider></v-divider>
+                <div class="text-center">
+                  <v-btn rounded color="primary" dark type="submit"
+                    >Insert</v-btn
+                  >
+                </div>
               </form>
             </div>
           </v-card-text>

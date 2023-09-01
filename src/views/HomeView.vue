@@ -3,13 +3,13 @@
   <v-container fill-height fill-width fluid class="background">
     <v-row align="center" justify="center">
       <v-col align="center" justify="center" cols="12">
-        <v-card width="600px" outlined>
+        <v-card width="700px" outlined>
           <v-card-title>Pretraži Nekretnine:</v-card-title>
           <SearchBar @search="performSearch" />
           <div class="NoResults" v-if="searchResults.length === 0">
             No results found.
           </div>
-          <div v-else>
+          <div v-else align="left" width="600" height="500">
             <Nekretnina
               v-for="result in searchResults"
               :key="result.id"
@@ -85,6 +85,11 @@ export default {
           naslov: doc.data().naslov,
           slika: doc.data().slika,
           type: doc.data().type,
+          email: doc.data().email,
+          price: doc.data().price,
+          address: doc.data().address,
+          location: doc.data().location,
+          text: doc.data().text,
           // Add other fields you want to display
         }));
       } catch (error) {
